@@ -138,8 +138,6 @@ def forecast_rating_knn_evaluation(n_user_clusters, forecast_column='UserRating'
     """
     movies, ratings, final_dataset = get_data()
     final_dataset = cleaning_data(final_dataset)
-   # final_dataset = genre_filter(movie_name, fnl_dataset, movies)
-   # final_dataset = cluster_users(final_dataset, n_user_clusters)
     user_ratings = get_user_rating(movies)
     final_dataset = add_user_ratings_column(user_ratings, final_dataset, 'ALI')
     final_dataset.replace({0:pd.NA}, inplace = True)
@@ -177,8 +175,6 @@ def forecast_rating_knn(n_user_clusters, forecast_column='UserRating'):
     """
     movies, ratings, final_dataset = get_data()
     final_dataset_t = cleaning_data(final_dataset)
-   # final_dataset = genre_filter(movie_name, fnl_dataset, movies)
-   # final_dataset = cluster_users(final_dataset, n_user_clusters)
     user_ratings = get_user_rating(movies)
     final_dataset = add_user_ratings_column(user_ratings, final_dataset_t, 'ALI')
     final_dataset.replace({0: pd.NA}, inplace=True)
@@ -283,25 +279,3 @@ def genre_filter(movie_name, dataset, movies):
     else:
         print("the movie is not in our database.")
         quit()
-
-
-#a, b, c = get_data()
-#c = cleaning_data(c)
-#print(len(cluster_users(c)))
-#sug = get_movie_recommendation(input('please name a movie to get similar movies:'), int(input('How many recommendations do you want?')))
-#print(sug)
-#movies, ratings, final_dataset = get_data()
-#forecast_rating_knn(20, 1)
-
-    # next step: outputting the function as a list. (Done)
-# next step: clustering the movies before suggestion based on genres. (Done)
-# documentation and debugging (Done)
-# next step: clustering the users based on their ratings to the movies. (Done)
-# next step: using current user's rating
-
-# next step: working on a larger dataset
-# making web service
-forecast_rating_knn(10)
-#forecast_rating_regression(10)
-#a = get_user_rating(movies)
-#print(a)
